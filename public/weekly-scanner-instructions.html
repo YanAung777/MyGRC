@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly LLM Market Auto-Assessment Runbook & Loading Instructions</title>
+  <meta name="description" content="Operational guide and loading instructions for weekly automated LLM market assessments in the AI Governance, Risk & Compliance (GRC) C&A Portal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --emerald-600: #059669;
+      --emerald-50: #ecfdf5;
+      --amber-600: #d97706;
+      --amber-50: #fffbeb;
+      --rose-600: #e11d48;
+      --rose-50: #fff1f2;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--slate-800);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      color: white;
+      padding: 60px 24px 50px;
+      border-bottom: 1px solid #334155;
+    }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(129, 140, 248, 0.4);
+      color: #c7d2fe;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .meta-item strong {
+      color: white;
+    }
+    main {
+      padding: 40px 24px 0;
+    }
+    .section-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--slate-800);
+      margin: 20px 0 8px;
+    }
+    p, li {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.65;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin: 12px 0;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .code-block {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 12px 0 16px;
+      border: 1px solid #1e293b;
+      position: relative;
+    }
+    .code-block code {
+      font-family: inherit;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .pill-green { background: var(--emerald-50); color: var(--emerald-600); }
+    .pill-amber { background: var(--amber-50); color: var(--amber-600); }
+    .pill-blue { background: var(--primary-light); color: var(--primary); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .kpi-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .kpi-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-800);
+      margin-bottom: 4px;
+    }
+    .kpi-card p {
+      font-size: 12px;
+      color: var(--slate-600);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    th {
+      background: var(--slate-50);
+      font-weight: 700;
+      color: var(--slate-700);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+    .btn-secondary {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+    }
+    .btn-secondary:hover {
+      background: var(--slate-200);
+    }
+    .callout {
+      border-left: 4px solid var(--primary);
+      background: var(--primary-light);
+      padding: 16px;
+      border-radius: 0 10px 10px 0;
+      margin: 16px 0;
+      font-size: 13px;
+      color: #3730a3;
+    }
+    .callout strong {
+      color: #1e1b4b;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="badge">Security Architect Standard Operating Procedure (SOP)</div>
+      <h1>Weekly LLM Market Auto-Assessment Runbook</h1>
+      <p class="subtitle">
+        Continuous GRC evaluation protocol for discovering, auditing, and maintaining an enterprise-approved AI foundation model whitelist. Complies with ISO 42001 (Clauses 8.4 & 9.1), ISO 27001 (A.8.1.1), NIST AI RMF, and EU AI Act.
+      </p>
+
+      <div class="meta-bar">
+        <div class="meta-item"><strong>Frequency:</strong> Every Monday at 06:00 UTC</div>
+        <div class="meta-item"><strong>Responsible Role:</strong> Lead AI Security Architect / GRC Lead</div>
+        <div class="meta-item"><strong>Execution Script:</strong> <code>scripts/weekly_llm_scanner.py</code></div>
+        <div class="meta-item"><strong>Target Platform:</strong> C&A Portal Model Registry</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. EXECUTIVE SUMMARY & OBJECTIVE -->
+    <section class="section-card">
+      <h2>1. Objective & Regulatory Mandate</h2>
+      <p>
+        Under <strong>ISO/IEC 42001:2023</strong> Clause 8.4 (AI System Impact Assessment) and <strong>NIST AI RMF</strong> (GOVERN 1.2), organizations deploying Artificial Intelligence must not allow unvetted foundation models into engineering pipelines without verified security, privacy, and safety provenance.
+      </p>
+      <p style="margin-top: 8px;">
+        This automated continuous scanner crawls model releases, vendor terms of service, and enterprise data processing agreements (DPAs) across OpenAI, Anthropic, Google Cloud, Meta, Mistral, DeepSeek, Cohere, and open-source hubs to determine which models meet enterprise security criteria.
+      </p>
+
+      <div class="grid-2">
+        <div class="kpi-card">
+          <h4>Approved Whitelist Threshold</h4>
+          <p>Models scoring &ge;85/100 with contractual Zero Data Retention (ZDR) and prompt training opt-out are promoted to <strong>Approved</strong>.</p>
+        </div>
+        <div class="kpi-card">
+          <h4>Restricted / Sovereign Caveats</h4>
+          <p>Models lacking US/EU residency or public DPA (e.g. DeepSeek-R1) are flagged <strong>Restricted</strong> (approved only for isolated internal VPCs).</p>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <a href="/weekly_llm_scanner.py" download="weekly_llm_scanner.py" class="btn btn-primary">
+          ⬇ Download Python Scanner Script
+        </a>
+        <a href="/run_weekly_scan.sh" download="run_weekly_scan.sh" class="btn btn-secondary">
+          ⬇ Download Shell Runner (.sh)
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. THE 7 GRC SECURITY PILLARS -->
+    <section class="section-card">
+      <h2>2. The 7-Pillar GRC Scoring Rubric</h2>
+      <p>Every scanned foundation model is scored against a 100-point weighted architectural rubric:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pillar</th>
+            <th>Weight</th>
+            <th>Verification Criteria</th>
+            <th>Impact on Approval</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Zero Data Retention (ZDR)</strong></td>
+            <td><span class="pill pill-blue">25 Pts</span></td>
+            <td>Enterprise DPA legally guarantees prompt/output discarded immediately post-inference.</td>
+            <td><span class="pill pill-green">Mandatory for PII / Confidential Data</span></td>
+          </tr>
+          <tr>
+            <td><strong>2. Training Opt-Out Guarantee</strong></td>
+            <td><span class="pill pill-blue">20 Pts</span></td>
+            <td>Contractual commitment that API payloads are never used to pre-train or fine-tune vendor models.</td>
+            <td><span class="pill pill-green">Strict Prerequisite for Approved Status</span></td>
+          </tr>
+          <tr>
+            <td><strong>3. Independent Certifications</strong></td>
+            <td><span class="pill pill-blue">15 Pts</span></td>
+            <td>Verified SOC 2 Type II audit report, ISO 27001 certificate, and HIPAA BAA availability.</td>
+            <td>8 pts (SOC 2) + 7 pts (ISO 27001)</td>
+          </tr>
+          <tr>
+            <td><strong>4. EU AI Act Systemic Risk Tier</strong></td>
+            <td><span class="pill pill-blue">15 Pts</span></td>
+            <td>Classification: GPAI with Systemic Risk (&gt;10^25 FLOPs compute threshold) vs Specific/Minimal Risk.</td>
+            <td>Full transparency & red-teaming report required</td>
+          </tr>
+          <tr>
+            <td><strong>5. Regional Data Residency</strong></td>
+            <td><span class="pill pill-blue">10 Pts</span></td>
+            <td>Regional compute boundary (US only, EU sovereign cloud, or customer VPC on AWS Bedrock/GCP Vertex).</td>
+            <td>Guarantees compliance with GDPR & sovereign laws</td>
+          </tr>
+          <tr>
+            <td><strong>6. Jailbreak & Red-Team Robustness</strong></td>
+            <td><span class="pill pill-blue">10 Pts</span></td>
+            <td>Resilience against prompt injection attacks, system prompt extraction, and OWASP LLM Top 10 vulnerabilities.</td>
+            <td>Evaluation from public red-team benchmarks</td>
+          </tr>
+          <tr>
+            <td><strong>7. Safety Filters & Moderation SLA</strong></td>
+            <td><span class="pill pill-blue">5 Pts</span></td>
+            <td>Automated content moderation API integration and enterprise uptime SLA (&ge;99.9%).</td>
+            <td>Assures reliable business continuity</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. STEP-BY-STEP RUNNING INSTRUCTIONS -->
+    <section class="section-card">
+      <h2>3. Weekly Operational Runbook (Step-by-Step)</h2>
+      <p>Follow these steps every Monday morning to execute the scan and update the model registry:</p>
+
+      <h3>Step 1: Environment Preparation</h3>
+      <p>Ensure Python 3.9+ is installed on your local workstation or CI/CD runner. No external dependencies are mandatory (standard library is used):</p>
+      <div class="code-block">
+        <code>python3 --version   # Must be >= 3.9</code>
+      </div>
+
+      <h3>Step 2: Execute the Automated Assessment Scanner</h3>
+      <p>Run the scanner to crawl market intelligence and produce the structured JSON feed:</p>
+      <div class="code-block">
+        <code># 1. Run scanner and output to JSON<br>
+python3 scripts/weekly_llm_scanner.py --output market-models-feed.json --verbose</code>
+      </div>
+
+      <h3>Step 3: Direct API Synchronization (Option A - Automated)</h3>
+      <p>If the C&A Portal server is running, the script can push the parsed models directly into the database with one flag:</p>
+      <div class="code-block">
+        <code>python3 scripts/weekly_llm_scanner.py --upload-to-app --app-url http://localhost:3000</code>
+      </div>
+
+      <h3>Step 4: Web UI Ingestion (Option B - Manual Review)</h3>
+      <ol>
+        <li>Open the <strong>C&A Portal</strong> in your browser.</li>
+        <li>In the sidebar, navigate to <strong>Models</strong>.</li>
+        <li>Click the <strong>Import / Export JSON</strong> button in the top action toolbar.</li>
+        <li>In the <strong>Import Models</strong> tab, drag &amp; drop the generated <code>market-models-feed.json</code> file (or paste its content).</li>
+        <li>Select Ingestion Strategy: <strong>Merge &amp; Update</strong> (recommended to preserve existing use cases).</li>
+        <li>Inspect the parsed models preview table and click <strong>Import Models</strong>.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>💡 Pro-Tip for Gateway Enforcement:</strong>
+        Once imported, use the <strong>Export Registry &amp; Whitelist</strong> tab to download <code>approved-llm-whitelist.json</code> and feed it directly into your LiteLLM or Portkey API proxy to prevent engineers from making calls to unauthorized LLM endpoints.
+      </div>
+    </section>
+
+    <!-- 4. CI/CD & CRON AUTOMATION -->
+    <section class="section-card">
+      <h2>4. Automated Scheduling (Cron & GitHub Actions)</h2>
+      <p>To run this scan completely hands-free on a recurring schedule:</p>
+
+      <h3>Linux Crontab Setup:</h3>
+      <div class="code-block">
+        <code># Run every Monday at 06:00 UTC and upload to the C&A Portal API<br>
+0 6 * * 1 /usr/bin/python3 /opt/ca-portal/scripts/weekly_llm_scanner.py --upload-to-app --app-url https://your-portal-domain.com >> /var/log/llm-scanner.log 2>&1</code>
+      </div>
+
+      <h3>GitHub Actions Workflow (<code>.github/workflows/weekly-llm-scanner.yml</code>):</h3>
+      <div class="code-block">
+        <code>name: Weekly LLM Market GRC Assessment<br>
+on:<br>
+  schedule:<br>
+    - cron: '0 6 * * 1' # Every Monday at 06:00 UTC<br>
+  workflow_dispatch:  # Manual trigger<br>
+<br>
+jobs:<br>
+  scan:<br>
+    runs-on: ubuntu-latest<br>
+    steps:<br>
+      - name: Checkout Code<br>
+        uses: actions/checkout@v4<br>
+<br>
+      - name: Set up Python<br>
+        uses: actions/setup-python@v5<br>
+        with:<br>
+          python-version: '3.11'<br>
+<br>
+      - name: Run Market Scanner<br>
+        run: |<br>
+          python scripts/weekly_llm_scanner.py --output market-models-feed.json<br>
+<br>
+      - name: Upload Artifact<br>
+        uses: actions/upload-artifact@v4<br>
+        with:<br>
+          name: market-models-feed<br>
+          path: market-models-feed.json</code>
+      </div>
+    </section>
+
+    <!-- 5. SCHEMA SPECIFICATION -->
+    <section class="section-card">
+      <h2>5. Standard JSON Schema Specification</h2>
+      <p>Each model record within the <code>models</code> array matches the following formal JSON specification:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>provider</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td><code>"Anthropic"</code></td>
+          </tr>
+          <tr>
+            <td><code>name</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td><code>"Claude 3.7 Sonnet (Hybrid Reasoning)"</code></td>
+          </tr>
+          <tr>
+            <td><code>version</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td><code>"20250219"</code></td>
+          </tr>
+          <tr>
+            <td><code>status</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>"Approved" | "Restricted" | "Pending" | "Blocked"</code></td>
+          </tr>
+          <tr>
+            <td><code>securityScore</code></td>
+            <td>Number</td>
+            <td>No</td>
+            <td><code>98</code> (0 to 100)</td>
+          </tr>
+          <tr>
+            <td><code>zeroDataRetention</code></td>
+            <td>Boolean</td>
+            <td>No</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>soc2Certified</code></td>
+            <td>Boolean</td>
+            <td>No</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>euAiActTier</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td><code>"GPAI with Systemic Risk"</code></td>
+          </tr>
+          <tr>
+            <td><code>dataResidency</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td><code>"US, EU (Multi-Region)"</code></td>
+          </tr>
+          <tr>
+            <td><code>notes</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td><code>"Approved for customer data under enterprise DPA."</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer style="text-align: center; font-size: 12px; color: #94a3b8; margin-top: 40px;">
+    C&A Portal AI Governance, Risk &amp; Compliance Platform &bull; ISO 42001 &amp; NIST AI RMF Continuous Assessment Engine
+  </footer>
+
+</body>
+</html>

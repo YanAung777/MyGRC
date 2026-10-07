@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C&A Portal — SaaS Technologies Ltd Enterprise AI Governance &amp; Compliance Platform</title>
+    
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans for Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              brand: {
+                50: '#f5f7ff',
+                100: '#ebf0ff',
+                200: '#dae2ff',
+                300: '#bdcbff',
+                400: '#94a9ff',
+                500: '#637eff',
+                600: '#4f60f4',
+                700: '#3e49e1',
+                800: '#333cbd',
+                900: '#2d3497',
+                950: '#1e205c',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- FontAwesome for standard vector icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .glow-indigo {
+        box-shadow: 0 0 40px -10px rgba(99, 126, 255, 0.2);
+      }
+      .compliance-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        width: 2px;
+        background: #e2e8f0;
+      }
+      @media (min-width: 768px) {
+        .compliance-timeline::before {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-brand-900 via-indigo-900 to-slate-900 text-white text-center py-2 px-4 text-xs font-semibold tracking-wide flex items-center justify-center gap-2">
+      <span class="bg-brand-500 text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">NEW</span>
+      <span>5x5 Likelihood &amp; Consequence Risk Matrix Map and SOC 2 Questionnaire PDF Report Exporting are now live!</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100">
+      <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-10 h-10 bg-gradient-to-tr from-brand-600 to-indigo-700 rounded-xl flex items-center justify-center text-white shadow-md shadow-brand-500/10 group-hover:scale-105 transition-transform duration-300">
+            <i class="fa-solid fa-shield-halved text-lg"></i>
+          </div>
+          <div class="flex flex-col text-left">
+            <span class="font-display font-extrabold text-lg text-slate-900 tracking-tight leading-none">C&A Portal</span>
+            <span class="text-[9px] font-mono font-bold text-indigo-600 tracking-wider mt-0.5">SaaS Technologies Ltd</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu links -->
+        <div class="hidden md:flex items-center gap-8 text-xs font-bold text-slate-500">
+          <a href="#features" class="hover:text-brand-600 transition-colors">Core Features</a>
+          <a href="#compliance" class="hover:text-brand-600 transition-colors">Standards Compliance</a>
+          <a href="#workspaces" class="hover:text-brand-600 transition-colors">Consultants &amp; MNCs</a>
+          <a href="#pricing" class="hover:text-brand-600 transition-colors">Plans &amp; Pricing</a>
+          <a href="#faq" class="hover:text-brand-600 transition-colors">FAQs</a>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex items-center gap-3">
+          <a href="/" class="hidden sm:inline-flex text-xs font-bold text-slate-600 hover:text-slate-900 px-4 py-2 transition-all">
+            Launch Platform
+          </a>
+          <a href="/" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition-all hover:shadow-lg shadow-slate-900/10">
+            <span>Get Started Free</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:py-24 overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-slate-100/30">
+      
+      <!-- Ambient background blobs -->
+      <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-brand-200/20 rounded-full blur-[120px] -z-10"></div>
+      <div class="absolute -top-40 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-[100px] -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 text-center space-y-8">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 text-brand-700 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide animate-pulse">
+          <i class="fa-solid fa-circle-check text-xs"></i>
+          <span>The Definitive AI GRC &amp; Safety Platform</span>
+        </div>
+
+        <!-- Dynamic Title -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.1]">
+          Implement Enterprise-Grade <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-indigo-800">
+            AI Governance &amp; Compliance
+          </span>
+          in Days, Not Months
+        </h1>
+
+        <!-- High-converting subtitle -->
+        <p class="text-slate-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Draft tailored policies, map model registries, visualize 5x5 Likelihood &amp; Consequence Risk Maps, manage 11 structured governance sections (including Overview &amp; Impact), and export full SOC 2 Questionnaire responses in auditor-ready PDF reports.
+        </p>
+
+        <!-- CTAs row -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <a href="/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-brand-500/20 transition-all hover:-translate-y-0.5">
+            <span>Explore Dashboard Live</span>
+            <i class="fa-solid fa-rocket text-xs"></i>
+          </a>
+          <a href="#features" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 text-sm font-bold px-8 py-4 rounded-xl border border-slate-200 shadow-sm transition-all">
+            <span>Learn How It Works</span>
+            <i class="fa-solid fa-circle-play text-xs text-slate-400"></i>
+          </a>
+        </div>
+
+        <!-- Trust / Under CTA badges -->
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-400 pt-3">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-nodes text-brand-500 text-[10px]"></i> Multi-workspace enabled</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-brand-500 text-[10px]"></i> Secure offline-first sandbox</span>
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf text-brand-500 text-[10px]"></i> One-click GRC PDF reporting</span>
+        </div>
+
+        <!-- App Screen Preview mockup (Real Platform Screenshot) -->
+        <div class="pt-8 max-w-5xl mx-auto">
+          <div class="bg-slate-900 text-slate-100 rounded-2xl p-2.5 shadow-2xl glow-indigo border border-slate-800 relative">
+            
+            <!-- Window title bar -->
+            <div class="flex items-center justify-between px-3 pb-3 pt-1 border-b border-slate-800">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              </div>
+              <div class="bg-slate-800 text-[10px] font-mono text-slate-400 px-6 py-1 rounded-md flex items-center gap-2">
+                <i class="fa-solid fa-lock text-emerald-400 text-[9px]"></i>
+                <span>https://caportal.saas-tech.com/app/dashboard</span>
+              </div>
+              <span class="text-[9px] font-mono text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded">
+                SaaS Technologies Ltd v4.2
+              </span>
+            </div>
+
+            <!-- Inside Mockup UI with actual platform screenshot -->
+            <div class="bg-slate-950 rounded-xl overflow-hidden text-left relative">
+              <img
+                src="/images/dashboard-screenshot.jpg"
+                alt="SaaS Technologies Ltd AI Governance Dashboard Interface Screenshot"
+                class="w-full h-auto object-cover rounded-xl shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE PLATFORM SCREENSHOTS SHOWCASE SECTION -->
+    <section class="py-20 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 space-y-16 relative z-10">
+        
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-desktop"></i>
+            <span>Interactive Application Previews</span>
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+            Built for Mission-Critical AI Governance
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Take a visual tour of SaaS Technologies Ltd's C&A Portal. Designed specifically for Chief Risk Officers, CISO teams, AI Ethics committees, and certifying auditors.
+          </p>
+        </div>
+
+        <!-- 3-Column Image Showcase Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Screenshot Card 1 -->
+          <div class="bg-slate-800/80 rounded-2xl border border-slate-700/80 overflow-hidden shadow-xl hover:border-indigo-500/50 transition-all group">
+            <div class="p-2 bg-slate-900 border-b border-slate-700/80 flex items-center justify-between text-[10px] font-mono text-slate-400 px-4">
+              <span class="font-bold text-indigo-400">01. Compliance &amp; Risk Dashboard</span>
+              <span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">ISO 42001</span>
+            </div>
+            <div class="overflow-hidden relative">
+              <img
+                src="/images/dashboard-screenshot.jpg"
+                alt="AI Compliance Management Dashboard Screenshot"
+                class="w-full h-48 sm:h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-bold text-sm text-white">Central GRC Progress &amp; Risk Matrix</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Monitor system completion ratios, active model counts, third-party vendor safety ratings, and ISO 42001 audit readiness at a single glance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Screenshot Card 2 -->
+          <div class="bg-slate-800/80 rounded-2xl border border-slate-700/80 overflow-hidden shadow-xl hover:border-indigo-500/50 transition-all group">
+            <div class="p-2 bg-slate-900 border-b border-slate-700/80 flex items-center justify-between text-[10px] font-mono text-slate-400 px-4">
+              <span class="font-bold text-indigo-400">02. Model Registry &amp; Audit Hub</span>
+              <span class="bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30">NIST AI RMF</span>
+            </div>
+            <div class="overflow-hidden relative">
+              <img
+                src="/images/model-registry-screenshot.jpg"
+                alt="AI Model Registry and Audit Hub Screenshot"
+                class="w-full h-48 sm:h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-bold text-sm text-white">Model Cards &amp; Evidence Storage</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Log LLM parameters, dataset lineage, safety evaluation files, and upload cryptographically verified audit attachments directly to compliance steps.
+              </p>
+            </div>
+          </div>
+
+          <!-- Screenshot Card 3 -->
+          <div class="bg-slate-800/80 rounded-2xl border border-slate-700/80 overflow-hidden shadow-xl hover:border-indigo-500/50 transition-all group">
+            <div class="p-2 bg-slate-900 border-b border-slate-700/80 flex items-center justify-between text-[10px] font-mono text-slate-400 px-4">
+              <span class="font-bold text-indigo-400">03. Policy Matrix &amp; Gap Analytics</span>
+              <span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">EU AI Act</span>
+            </div>
+            <div class="overflow-hidden relative">
+              <img
+                src="/images/compliance-analytics-screenshot.jpg"
+                alt="Compliance Policy Matrix and Gap Analytics Screenshot"
+                class="w-full h-48 sm:h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-bold text-sm text-white">Section Checklists &amp; Priority Gap Popovers</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Review 11 core section questionnaires with multi-line notes, map priority gap popovers, and generate clean PDF/DOCX audit packages.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION (BENTO GRID - ADAPTED DIRECTLY TO YOUR 6 OBJECTIVES) -->
+    <section id="features" class="py-20 bg-white border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 space-y-16">
+        
+        <!-- Section Header -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+          <span class="text-[10px] font-extrabold text-brand-600 uppercase tracking-widest block">Powerhouse GRC Framework</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Six Critical Capabilities of the C&A Portal Ecosystem
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm">
+            Everything you need to successfully execute corporate GRC, meet stringent international security audits, and satisfy board requirements.
+          </p>
+        </div>
+
+        <!-- Bento Grid representing your exact requested 6 items -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1: Draft AI policies, risk assessments & impact reports -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">1. 11 Structured Governance Sections</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Seamlessly guide projects across 11 core sections: Project Details, System Report, Overview &amp; Impact, Description of Systems, Business Flows, Assessment Scope, Findings, Risk Commentary, Compliance, Questionnaires, &amp; Evidences.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                PROJECT FORM MODAL <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 2: Track use cases, AI models, vendors, incident reports -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">2. Track Models, Vendors &amp; Incidents</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Maintain a centralized catalog of your organization's active AI systems, test configurations, third-party APIs (like OpenAI), and report real-time production anomalies.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                REGISTRY &amp; ALERTS <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 3: Interactive Checklist, 5x5 Risk Map & Policy Compliance Matrix -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-table-cells"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">3. 5x5 Risk Summary Matrix Map</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Visualize target vs. current residual risk positions on an interactive 5x5 Likelihood &amp; Consequence heatmap matrix with category tags (SR, PR, HR, ER, IMR) and detailed risk breakdown cards.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                5x5 RISK MATRIX <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 4: Evidence management, SOC 2 Questionnaires & PDF/DOCX Export -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">4. SOC 2 &amp; Evidence PDF Export</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Complete SOC 2 Trust Services Criteria questionnaires (Security, Availability, Integrity, Confidentiality, Privacy) and generate comprehensive auditor-ready PDF bundles with custom company logo watermarks.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                PDF REPORT EXPORT <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 5: Dashboards and Tasks to track progress -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">5. Dynamic Progress Dashboards</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Stay audit-ready with analytical charts tracking completed tasks, open compliance gaps, vendor verification rates, and model risk ratios at a single glance.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                PROGRESS TELEMETRY <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 6: Create multiple workspaces (suitable for MNC and consultants) -->
+          <div class="bg-slate-50 hover:bg-slate-50/30 p-8 rounded-2xl border border-slate-200/60 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-indigo-50 group-hover:bg-brand-500 group-hover:text-white rounded-xl flex items-center justify-center text-brand-600 text-lg transition-colors">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <h3 class="font-display font-bold text-lg text-slate-900">6. Multi-Workspace Infrastructure</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Perfect for large Multinational Corporations (MNCs) managing separate subsidiaries, or expert consultants overseeing multiple client GRC pipelines in total isolation.
+              </p>
+            </div>
+            <div class="pt-6">
+              <span class="text-[10px] font-mono font-bold text-brand-600 flex items-center gap-1.5">
+                WORKSPACE ORGANIZER <i class="fa-solid fa-arrow-right text-[8px]"></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP BY STEP BLUEPRINT PREVIEW (ISO 42001 & ISO 27001 TIMELINE) -->
+    <section id="compliance" class="py-20 bg-slate-50">
+      <div class="max-w-5xl mx-auto px-6 space-y-16">
+        
+        <div class="text-center space-y-4">
+          <span class="text-[10px] font-extrabold text-brand-600 uppercase tracking-widest block">Standardized Implementation</span>
+          <h2 class="font-display font-extrabold text-3xl text-slate-900">
+            Step-by-Step ISO 42001 Compliance Pipeline
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm max-w-xl mx-auto">
+            C&A Portal takes the ambiguity out of international certification. Follow our structured timeline to build robust, compliant foundations.
+          </p>
+        </div>
+
+        <!-- Vertical Timeline Graphic in CSS -->
+        <div class="relative compliance-timeline space-y-10">
+          
+          <!-- Step 1 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center relative md:justify-between group">
+            <div class="w-full md:w-[45%] md:text-right pr-0 md:pr-8 text-left">
+              <span class="text-brand-600 font-mono font-bold text-xs">STAGE 01</span>
+              <h3 class="font-display font-bold text-base text-slate-900 mt-1">Designate AI Governance &amp; Strategy</h3>
+              <p class="text-slate-500 text-xs mt-1.5 leading-relaxed">
+                Assign organizational roles, identify stakeholders, and draft the overarching corporate AI safety policy charter.
+              </p>
+            </div>
+            <div class="absolute left-[15px] md:left-1/2 transform -translate-x-[50%] w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-md flex items-center justify-center text-white font-black text-xs z-10">
+              1
+            </div>
+            <div class="hidden md:block w-[45%] pl-8"></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center relative md:justify-between group">
+            <div class="hidden md:block w-[45%] pr-8 text-right"></div>
+            <div class="absolute left-[15px] md:left-1/2 transform -translate-x-[50%] w-8 h-8 rounded-full bg-indigo-600 border-4 border-white shadow-md flex items-center justify-center text-white font-black text-xs z-10">
+              2
+            </div>
+            <div class="w-full md:w-[45%] pl-0 md:pl-8 text-left">
+              <span class="text-indigo-600 font-mono font-bold text-xs">STAGE 02</span>
+              <h3 class="font-display font-bold text-base text-slate-900 mt-1">Model Inventory &amp; Categorization</h3>
+              <p class="text-slate-500 text-xs mt-1.5 leading-relaxed">
+                Log active algorithmic use cases, identify external models (e.g., Anthropic Claude, Gemini), and classify risk tiers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center relative md:justify-between group">
+            <div class="w-full md:w-[45%] md:text-right pr-0 md:pr-8 text-left">
+              <span class="text-brand-600 font-mono font-bold text-xs">STAGE 03</span>
+              <h3 class="font-display font-bold text-base text-slate-900 mt-1">Impact &amp; Bias Assessments</h3>
+              <p class="text-slate-500 text-xs mt-1.5 leading-relaxed">
+                Execute demographic parity evaluations, run fairness algorithms, and compile audit-ready compliance impact reports.
+              </p>
+            </div>
+            <div class="absolute left-[15px] md:left-1/2 transform -translate-x-[50%] w-8 h-8 rounded-full bg-brand-600 border-4 border-white shadow-md flex items-center justify-center text-white font-black text-xs z-10">
+              3
+            </div>
+            <div class="hidden md:block w-[45%] pl-8"></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex flex-col md:flex-row items-start md:items-center relative md:justify-between group">
+            <div class="hidden md:block w-[45%] pr-8 text-right"></div>
+            <div class="absolute left-[15px] md:left-1/2 transform -translate-x-[50%] w-8 h-8 rounded-full bg-indigo-600 border-4 border-white shadow-md flex items-center justify-center text-white font-black text-xs z-10">
+              4
+            </div>
+            <div class="w-full md:w-[45%] pl-0 md:pl-8 text-left">
+              <span class="text-indigo-600 font-mono font-bold text-xs">STAGE 04</span>
+              <h3 class="font-display font-bold text-base text-slate-900 mt-1">Active Evidence Lock &amp; Audit</h3>
+              <p class="text-slate-500 text-xs mt-1.5 leading-relaxed">
+                Lock verification evidence files, assemble the final ISO 42001 report, and share structured workspace access with external auditors.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MNC & CONSULTANT TARGET FEATURE HIGHLIGHT -->
+    <section id="workspaces" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left text columns -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-[10px] font-extrabold text-brand-600 uppercase tracking-widest block">Architected for Professional Teams</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
+            Consultancy Firms &amp; Multinational Workspace Clusters
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+            C&A Portal allows you to establish totally isolated workspaces. Ensure that client GRC strategies, model metrics, and custom GRC checklists never leak or mix, while allowing auditors access with unique keys.
+          </p>
+
+          <div class="space-y-3.5 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-md bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mt-0.5">
+                <i class="fa-solid fa-check text-[10px]"></i>
+              </div>
+              <div class="text-left">
+                <h4 class="text-xs font-bold text-slate-800">Complete Tenant Isolation</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Separate files, team databases, and policy registries for every subsidiary or client pipeline.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-md bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mt-0.5">
+                <i class="fa-solid fa-check text-[10px]"></i>
+              </div>
+              <div class="text-left">
+                <h4 class="text-xs font-bold text-slate-800">Shared Auditor Credentials</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Invite auditors to view specific workspace boards without giving them access to your global infrastructure.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-md bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mt-0.5">
+                <i class="fa-solid fa-check text-[10px]"></i>
+              </div>
+              <div class="text-left">
+                <h4 class="text-xs font-bold text-slate-800">Unified Central Billing</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Manage seat counts and billing models across hundreds of child workspaces from a master admin portal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Mockup (Interactive Workspace Selector showcase) -->
+        <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl"></div>
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div class="text-left">
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Active Instance Nodes</span>
+                <h4 class="text-xs font-bold text-slate-800">Switch GRC Workspaces</h4>
+              </div>
+              <span class="text-[10px] font-mono text-brand-600 font-bold bg-brand-50 border border-brand-100 px-2 py-0.5 rounded-md">6 Active Workspaces</span>
+            </div>
+
+            <div class="space-y-3">
+              <!-- Workspace 1 -->
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex justify-between items-center hover:border-brand-500 hover:shadow-md transition-all cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-brand-500 text-white flex items-center justify-center font-bold font-display text-sm">
+                    MC
+                  </div>
+                  <div class="text-left">
+                    <span class="font-bold text-slate-800 text-xs">MegaCorp Inc. (US Subsidiary)</span>
+                    <span class="text-[10px] text-slate-400 block">12 models registered • 100% ISO-27001 Ready</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] bg-emerald-50 border border-emerald-100 text-emerald-700 font-bold px-2.5 py-0.5 rounded-full">Primary tenant</span>
+                </div>
+              </div>
+
+              <!-- Workspace 2 -->
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex justify-between items-center hover:border-brand-500 hover:shadow-md transition-all cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold font-display text-sm">
+                    AC
+                  </div>
+                  <div class="text-left">
+                    <span class="font-bold text-slate-800 text-xs">Apex Advisory &amp; Consulting Group</span>
+                    <span class="text-[10px] text-slate-400 block">4 clients managed • 3 active audit templates</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] bg-slate-50 border border-slate-200 text-slate-500 font-semibold px-2.5 py-0.5 rounded-full">Consultant Hub</span>
+                </div>
+              </div>
+
+              <!-- Workspace 3 -->
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex justify-between items-center hover:border-brand-500 hover:shadow-md transition-all cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-slate-800 text-white flex items-center justify-center font-bold font-display text-sm">
+                    G9
+                  </div>
+                  <div class="text-left">
+                    <span class="font-bold text-slate-800 text-xs">Global Retail Logistics Inc. (EU Group)</span>
+                    <span class="text-[10px] text-slate-400 block">8 use cases tracked • 1 open incident case</span>
+                  </div>
+                </div>
+                <div class="text-right font-bold text-[10px] text-brand-600">
+                  Select <i class="fa-solid fa-arrow-right-long ml-1"></i>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-[10px] text-slate-400 text-center italic mt-2">
+              Auditors can inspect specific client assets safely within their designated silos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTEGRATIVE PLANS & BILLING PRICING SECTION -->
+    <section id="pricing" class="py-20 bg-slate-50 border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 space-y-16">
+        
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+          <span class="text-[10px] font-extrabold text-brand-600 uppercase tracking-widest block">Transparent, Fair Pricing</span>
+          <h2 class="font-display font-extrabold text-3xl text-slate-900 tracking-tight">
+            Flexible GRC Packages for Scale
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm">
+            Configure GRC models based on workspaces, registered AI systems, and seat counts. All plans include 256-bit secure export mechanisms.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
+          
+          <!-- Starter Plan -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Standard Tier</span>
+                <h3 class="font-display font-bold text-xl text-slate-900">Compliance Pilot</h3>
+                <p class="text-xs text-slate-400">Great for individual GRC leads and small AI pilot projects.</p>
+              </div>
+
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-slate-900">$29</span>
+                <span class="text-xs text-slate-400 font-semibold">/ month</span>
+              </div>
+
+              <div class="space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-600">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> 1 Active Workspace</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Up to 3 AI Models Tracked</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Standard ISO 42001 Blueprint</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> One-click PDF reports</div>
+                <div class="flex items-center gap-2 text-slate-300"><i class="fa-solid fa-times"></i> Multi-Workspace Management</div>
+              </div>
+            </div>
+
+            <div class="pt-8">
+              <a href="/" class="w-full inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 rounded-xl transition-all">
+                Select Compliance Pilot
+              </a>
+            </div>
+          </div>
+
+          <!-- Growth/Professional Plan (Featured) -->
+          <div class="bg-white p-8 rounded-2xl border-2 border-brand-500 flex flex-col justify-between shadow-lg relative transform md:-translate-y-2">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-[9px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+              Most Popular
+            </div>
+
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-[10px] font-bold text-brand-600 uppercase tracking-widest block">Pro Tier</span>
+                <h3 class="font-display font-bold text-xl text-slate-900">Governance Pro</h3>
+                <p class="text-xs text-slate-400">Perfect for scaling enterprises and professional AI teams.</p>
+              </div>
+
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-slate-900">$149</span>
+                <span class="text-xs text-slate-400 font-semibold">/ month</span>
+              </div>
+
+              <div class="space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-600">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> 5 Active Workspaces</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Unlimited AI Models Tracked</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Step-by-Step ISO 42001 &amp; 27001</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> DOCX &amp; PDF Export Mechanisms</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> 10 Shared Auditor Logins</div>
+              </div>
+            </div>
+
+            <div class="pt-8">
+              <a href="/" class="w-full inline-flex items-center justify-center bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold py-3 rounded-xl transition-all shadow-md shadow-brand-500/10">
+                Select Governance Pro
+              </a>
+            </div>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Scale Tier</span>
+                <h3 class="font-display font-bold text-xl text-slate-900">Enterprise Node</h3>
+                <p class="text-xs text-slate-400">Customized integrations, on-premise modules, and dedicated GRC managers.</p>
+              </div>
+
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-slate-900">$499</span>
+                <span class="text-xs text-slate-400 font-semibold">/ month</span>
+              </div>
+
+              <div class="space-y-3 pt-4 border-t border-slate-100 text-xs text-slate-600">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Unlimited Workspaces</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Custom Compliance blue-printing</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Multi-organizational tenant sync</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Custom SLA &amp; Support lines</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> Direct API GRC Integration</div>
+              </div>
+            </div>
+
+            <div class="pt-8">
+              <a href="/" class="w-full inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 rounded-xl transition-all">
+                Contact Governance Scale
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST LOGOS STRIP -->
+    <div class="bg-white py-12 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Trusted by AI Builders and Security Leads Worldwide</span>
+        <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all">
+          <span class="font-display font-bold text-lg text-slate-700 tracking-tight"><i class="fa-solid fa-cubes-stacked mr-2"></i> CloudNode GRC</span>
+          <span class="font-display font-bold text-lg text-slate-700 tracking-tight"><i class="fa-solid fa-microchip mr-2"></i> TensorLogic</span>
+          <span class="font-display font-bold text-lg text-slate-700 tracking-tight"><i class="fa-solid fa-globe mr-2"></i> GlobalSystems</span>
+          <span class="font-display font-bold text-lg text-slate-700 tracking-tight"><i class="fa-solid fa-building-shield mr-2"></i> ApexAdvisory</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQS SECTION -->
+    <section id="faq" class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-6 space-y-12">
+        
+        <div class="text-center space-y-4">
+          <span class="text-[10px] font-extrabold text-brand-600 uppercase tracking-widest block">Clear Answers</span>
+          <h2 class="font-display font-extrabold text-3xl text-slate-900">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm">
+            Have questions about AI standards, workspaces, or exporting evidence? Find immediate clarity below.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- Q1 -->
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-left">
+            <h4 class="font-display font-bold text-sm text-slate-800">What is ISO 42001, and how does C&A Portal help?</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mt-2">
+              ISO 42001 is the international standard specifying requirements for establishing, implementing, maintaining, and continually improving an Artificial Intelligence Management System (AIMS). C&A Portal translates these abstract controls into practical, bite-sized tasks, allowing your security team to map model inventory, verify compliance checklists, and secure auditing evidence effortlessly.
+            </p>
+          </div>
+
+          <!-- Q2 -->
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-left">
+            <h4 class="font-display font-bold text-sm text-slate-800">How do multi-workspaces work for consulting firms?</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mt-2">
+              If you are a consultancy firm or managing multiple child organizations, you can spin up dedicated, isolated environments (called 'Workspaces') inside C&A Portal. Each workspace holds its own unique task statuses, policy definitions, model registry, and custom compliance reports. This ensures complete client confidentiality.
+            </p>
+          </div>
+
+          <!-- Q3 -->
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-left">
+            <h4 class="font-display font-bold text-sm text-slate-800">Can we export compliance reports into PDF/DOCX format?</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mt-2">
+              Yes. Once your compliance checklists are filled and your safety evidence is loaded, you can compile and download full bundles in clean, auditor-ready formats in a single click. These reports are perfectly structured to serve as primary artifacts for certifying registrars.
+            </p>
+          </div>
+
+          <!-- Q4 -->
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 text-left">
+            <h4 class="font-display font-bold text-sm text-slate-800">How secure is the data stored on C&A Portal?</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mt-2">
+              C&A Portal runs inside high-security containers utilizing strict 256-bit sandbox constraints. All evidence files and metadata are encrypted both in transit and at rest, meaning external bad actors can never access your organization's confidential model logs or custom GRC strategies.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION (CTA) -->
+    <section class="py-20 bg-gradient-to-tr from-brand-900 to-indigo-950 text-white text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-brand-600/10 mix-blend-overlay"></div>
+      <div class="absolute -top-40 left-10 w-[500px] h-[500px] bg-brand-500/20 rounded-full blur-[120px]"></div>
+      
+      <div class="max-w-4xl mx-auto px-6 relative z-10 space-y-8">
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl leading-tight max-w-2xl mx-auto">
+          Ready to Certify Your Artificial Intelligence Management System?
+        </h2>
+        <p class="text-brand-200 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+          Start mapping your first workspace, logging your AI systems, and executing dynamic compliance tasks today. Get absolute security alignment in record time.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a href="/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 text-sm font-extrabold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+            <span>Launch Sandbox For Free</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#features" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-brand-300 text-brand-100 hover:text-white hover:border-white text-sm font-bold px-8 py-4 rounded-xl transition-all">
+            <span>Review Capabilities</span>
+          </a>
+        </div>
+
+        <span class="text-[10px] text-brand-300/80 font-mono block mt-2">
+          COMPLIANT WITH ISO 42001, ISO 27001, EU AI ACT &amp; NIST AI RMF
+        </span>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="font-display font-extrabold text-slate-100">C&A Portal</span>
+              <span class="text-[9px] font-mono text-indigo-400 font-bold">SaaS Technologies Ltd</span>
+            </div>
+          </div>
+          <p class="text-[11px] leading-relaxed">
+            Enterprise GRC Platform by SaaS Technologies Ltd helping organizations structure, verify, and lock AI governance blueprints across ISO 42001, ISO 27001, SOC 2, &amp; EU AI Act.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Core Modules</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="/" class="hover:text-white">AI Policy Generator</a></li>
+            <li><a href="/" class="hover:text-white">Model Registry Logs</a></li>
+            <li><a href="/" class="hover:text-white">Incident Response Hub</a></li>
+            <li><a href="/" class="hover:text-white">ISO 42001 Checklist</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Integrations</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="/" class="hover:text-white">Workspace Syncing</a></li>
+            <li><a href="/" class="hover:text-white">Third-Party Vendor Audit</a></li>
+            <li><a href="/" class="hover:text-white">PDF / DOCX Generation</a></li>
+            <li><a href="/" class="hover:text-white">Auditor Access Nodes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Legal &amp; Trust</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#" class="hover:text-white">Security Whitepaper</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white">ISO 27001 Verified</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[10px]">
+        <span>&copy; 2026 SaaS Technologies Ltd. All Rights Reserved. Enterprise AI Governance Platform.</span>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-github text-sm"></i></a>
+          <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-twitter text-sm"></i></a>
+          <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-linkedin text-sm"></i></a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

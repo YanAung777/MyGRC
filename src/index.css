@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Theme Variable Defaults */
+:root {
+  --bg-deep: #f8fafc;
+  --bg-midnight: #ffffff;
+  --bg-surface: #f1f5f9;
+  --bg-elevated: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #6366f1;
+  --accent-cyan: #0284c7;
+  --accent-coral: #f43f5e;
+  --accent-gold: #d97706;
+  --text-muted: #64748b;
+  --text-main: #0f172a;
+}
+
+/* Always SaaS - Cyberpunk / Neon Theme */
+[data-theme="always-saas"] {
+  --bg-deep: #0A0A18;
+  --bg-midnight: #15102A;
+  --bg-surface: #1E1838;
+  --bg-elevated: #281F4A;
+  --primary: #FF5EBE;
+  --primary-hover: #FF7EC8;
+  --secondary: #8B5CF6;
+  --accent-cyan: #5EE1FF;
+  --accent-coral: #FF8A5B;
+  --accent-gold: #FFB86C;
+  --text-muted: #C4B8E0;
+  --text-main: #FFFFFF;
+}
+
+/* Emerald Security Dark Theme */
+[data-theme="emerald-security"] {
+  --bg-deep: #061A14;
+  --bg-midnight: #0B2920;
+  --bg-surface: #13382C;
+  --bg-elevated: #1C4839;
+  --primary: #10B981;
+  --primary-hover: #34D399;
+  --secondary: #059669;
+  --accent-cyan: #2DD4BF;
+  --accent-coral: #FB7185;
+  --accent-gold: #F59E0B;
+  --text-muted: #A7F3D0;
+  --text-main: #F0FDF4;
+}
+
+/* Obsidian Gold Dark Theme */
+[data-theme="obsidian-gold"] {
+  --bg-deep: #0F172A;
+  --bg-midnight: #1E293B;
+  --bg-surface: #334155;
+  --bg-elevated: #475569;
+  --primary: #F59E0B;
+  --primary-hover: #FBBF24;
+  --secondary: #D97706;
+  --accent-cyan: #38BDF8;
+  --accent-coral: #F43F5E;
+  --accent-gold: #FEF08A;
+  --text-muted: #CBD5E1;
+  --text-main: #F8FAFC;
+}
+
+/* Royal Amethyst Theme */
+[data-theme="royal-amethyst"] {
+  --bg-deep: #0F0C1B;
+  --bg-midnight: #18122B;
+  --bg-surface: #251B3E;
+  --bg-elevated: #342553;
+  --primary: #D946EF;
+  --primary-hover: #F0ABFC;
+  --secondary: #A855F7;
+  --accent-cyan: #38BDF8;
+  --accent-coral: #FF6B81;
+  --accent-gold: #FACC15;
+  --text-muted: #D8B4FE;
+  --text-main: #FAF5FF;
+}
+
+/* Oceanic Marine Theme */
+[data-theme="oceanic-blue"] {
+  --bg-deep: #08101E;
+  --bg-midnight: #0F1C2E;
+  --bg-surface: #172A45;
+  --bg-elevated: #213859;
+  --primary: #0EA5E9;
+  --primary-hover: #38BDF8;
+  --secondary: #2563EB;
+  --accent-cyan: #06B6D4;
+  --accent-coral: #F43F5E;
+  --accent-gold: #EAB308;
+  --text-muted: #BAE6FD;
+  --text-main: #F0F9FF;
+}
+
+/* Helper classes from Always SaaS Theme */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.tech {
+  border-radius: 6px 18px 6px 18px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+
+  /* Polish scrollbars globally for consistent premium styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer utilities {
+  /* Dynamic Primary Accent Overrides for buttons, badges, active tabs */
+  .bg-indigo-600,
+  .bg-indigo-700,
+  .bg-blue-600 {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+  }
+
+  .hover\:bg-indigo-700:hover,
+  .hover\:bg-indigo-800:hover,
+  .hover\:bg-blue-700:hover {
+    background-color: var(--primary-hover) !important;
+  }
+
+  .text-indigo-600,
+  .text-indigo-700,
+  .text-indigo-500,
+  .text-blue-600,
+  .text-indigo-650 {
+    color: var(--primary) !important;
+  }
+
+  .border-indigo-600,
+  .border-indigo-500,
+  .border-blue-600 {
+    border-color: var(--primary) !important;
+  }
+
+  .bg-indigo-50,
+  .bg-indigo-50\/70 {
+    background-color: var(--bg-surface) !important;
+    color: var(--primary) !important;
+  }
+
+  /* Elevate general layout borders to be crisp and polished Slate-200 standard */
+  .border-gray-100 {
+    border-color: #e2e8f0 !important; /* Maps to slate-200 for clean professional bounds */
+  }
+
+  /* Elevate shadow-xs to a smooth, premium high-contrast shadow matching professional design standards */
+  .shadow-xs {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02), 0 1px 3px 0 rgba(0, 0, 0, 0.03) !important;
+  }
+
+  /* Elegant cards styling */
+  .bg-white {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Modern premium inputs, selects and textareas styling */
+  input[type="text"], input[type="search"], select, textarea {
+    transition: all 0.15s ease-in-out;
+  }
+  input[type="text"]:focus, input[type="search"]:focus, select:focus, textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12) !important;
+    outline: none !important;
+  }
+
+  /* Custom table polish */
+  table th {
+    font-weight: 700 !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    font-size: 10px !important;
+  }
+
+  table tr {
+    transition: background-color 0.1s ease-in-out;
+  }
+  table tr:hover {
+    background-color: #f8fafc !important;
+  }
+
+  /* Status badge styling boost */
+  .bg-emerald-50 {
+    background-color: #ecfdf5 !important;
+    color: #047857 !important;
+    border: 1px solid #a7f3d0 !important;
+  }
+  .bg-rose-50 {
+    background-color: #fff1f2 !important;
+    color: #be123c !important;
+    border: 1px solid #fecdd3 !important;
+  }
+  .bg-amber-50 {
+    background-color: #fef3c7 !important;
+    color: #b45309 !important;
+    border: 1px solid #fde68a !important;
+  }
+  .bg-indigo-50 {
+    background-color: #eef2ff !important;
+    color: #4338ca !important;
+    border: 1px solid #c7d2fe !important;
+  }
+  .bg-sky-50 {
+    background-color: #f0f9ff !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+  }
+
+  /* Custom micro-interactions for buttons and lists */
+  button {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Comprehensive Dark Mode Surface Overrides when a dark theme is active */
+[data-theme="always-saas"],
+[data-theme="emerald-security"],
+[data-theme="obsidian-gold"],
+[data-theme="royal-amethyst"],
+[data-theme="oceanic-blue"] {
+  color-scheme: dark;
+
+  body, #root, main, .bg-slate-50 {
+    background-color: var(--bg-deep) !important;
+    color: var(--text-main) !important;
+  }
+
+  /* Cards, Modals, Popovers, Dropdowns */
+  .bg-white {
+    background-color: var(--bg-midnight) !important;
+    color: var(--text-main) !important;
+    border-color: var(--bg-elevated) !important;
+  }
+
+  /* Sidebar Navigation Container */
+  aside {
+    background-color: var(--bg-midnight) !important;
+    border-color: var(--bg-elevated) !important;
+  }
+
+  /* Header Bar */
+  header {
+    background-color: var(--bg-midnight) !important;
+    border-color: var(--bg-elevated) !important;
+  }
+
+  /* Inner Panels, Muted Badges, Slate-50 / Slate-100 blocks */
+  .bg-slate-50,
+  .bg-slate-100,
+  .bg-slate-100\/60,
+  .bg-slate-200\/50,
+  .bg-slate-200\/60 {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-main) !important;
+  }
+
+  /* Hover states for dark mode surfaces */
+  .hover\:bg-slate-50:hover,
+  .hover\:bg-slate-100:hover,
+  .hover\:bg-slate-200\/50:hover,
+  .hover\:bg-slate-200\/60:hover {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  /* Text Colors */
+  .text-slate-900,
+  .text-slate-800,
+  .text-slate-700 {
+    color: var(--text-main) !important;
+  }
+
+  .text-slate-600,
+  .text-slate-500,
+  .text-slate-400 {
+    color: var(--text-muted) !important;
+  }
+
+  /* Borders */
+  .border-slate-150,
+  .border-slate-200,
+  .border-slate-100,
+  .border-slate-300,
+  .border-gray-100,
+  .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--bg-elevated) !important;
+  }
+
+  /* Form Elements */
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-main) !important;
+    border-color: var(--bg-elevated) !important;
+  }
+
+  /* Tables */
+  table th {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--bg-elevated) !important;
+  }
+
+  table tr:hover {
+    background-color: var(--bg-surface) !important;
+  }
+}
+
+/* Custom layout animations */
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

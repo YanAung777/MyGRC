@@ -1,0 +1,6 @@
+{
+  "name": "C&A Portal",
+  "description": "A comprehensive AI Governance, Risk, and Compliance (GRC) platform to manage policies, track models, assess risks, and implement standards like ISO 42001, ISO 27001, and NIST AI RMF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
